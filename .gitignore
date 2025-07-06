@@ -1,0 +1,18 @@
+# ROS 2 workspace ignore
+build/
+install/
+log/
+*.pyc
+__pycache__/
+.env
+.venv
+*.swp
+*.swo
+*.bak
+.DS_Store
+.idea/
+.vscode/
+# Ignore ROS 2 launch and config logs
+*.launch.pyc
+*.launch.py~
+*.yaml~
