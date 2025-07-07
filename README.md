@@ -83,24 +83,6 @@ Edit `src/bringup/config/parameters.yaml` to change project behavior. For exampl
 - `turtle_name_prefix`: Prefix for spawned turtle names.
 - `spawn_frequency`: How often (in seconds) new turtles are spawned.
 
-### ROS 2 Introspection Commands
-List topics:
-```sh
-ros2 topic list
-```
-Echo turtle pose:
-```sh
-ros2 topic echo /turtle1/pose
-```
-List services:
-```sh
-ros2 service list
-```
-Call the catch turtle service:
-```sh
-ros2 service call /catch_turtle interfaces/srv/CatchTurtle "{name: 'turtle2'}"
-```
-
 ## Troubleshooting
 - **Build errors:** Make sure you have sourced the correct ROS 2 setup script and installed all dependencies.
 - **No turtles are being caught:** Check your parameters in the YAML file and ensure the nodes are running.
