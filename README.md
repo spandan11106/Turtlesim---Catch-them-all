@@ -134,7 +134,6 @@ Pull requests and issues are welcome! Please open an issue or submit a PR for im
 
 ## License
 [MIT License](LICENSE)  
-*Specify your license here if different.*
 
 ---
 Created by Spandan Mhapsekar
