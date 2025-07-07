@@ -23,6 +23,9 @@ A ROS 2 project where you control a turtle in the classic `turtlesim` simulator 
 ## Overview
 This project features a fully automated turtle controller that navigates the `turtlesim` world to catch all spawned turtles, showcasing essential ROS 2 skills: node orchestration, custom interfaces, parameterization, and launch management.
 
+**Why this project matters:**
+This project helped me understand ROS2 node communication, services, and interface design. It also mimics real-world task assignment in multi-agent systems.
+
 ## Quick Start
 1. **Install ROS 2 (Humble or later)**
 2. **Clone this repository:**
@@ -48,7 +51,7 @@ This project features a fully automated turtle controller that navigates the `tu
 - **Testing:** Includes basic Python tests and ROS 2 linting.
 
 ## Project Structure
-```
+```text
 Turtlesim---Catch-them-all/
 ├── src/
 │   ├── bringup/         # Launch and config files
@@ -74,9 +77,9 @@ Example:
     turtle_name_prefix: "demo"
     spawn_frequency: 2.0
 ```
-- **catch_closest_turtle_first:** If `True`, targets the nearest turtle; if `False`, follows spawn order.
-- **turtle_name_prefix:** Prefix for naming spawned turtles.
-- **spawn_frequency:** Frequency (in seconds) for spawning new turtles.
+- `catch_closest_turtle_first`: If `True`, targets the nearest turtle; if `False`, follows spawn order.
+- `turtle_name_prefix`: Prefix for naming spawned turtles.
+- `spawn_frequency`: Frequency (in seconds) for spawning new turtles.
 
 ## Packages and Nodes
 - **catch_them_all**
