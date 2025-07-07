@@ -4,7 +4,9 @@ A ROS 2 project where you control a turtle in the classic `turtlesim` simulator 
 
 ![Project Screenshot](image.png)
 
-[▶️ Watch Demo Video](Screencast%20from%2007-07-2025%2012:26:25%20PM.webm)
+[▶️ Watch Demo Video](project_demo.webm)
+
+**[Direct link to demo video (download/view)](./project_demo.webm)**
 
 ## Features
 - **Automatic Turtle Catching:** The main controller node automatically finds and catches all turtles in the simulation.
@@ -66,9 +68,6 @@ Turtlesim---Catch-them-all/
 - ROS 2 (Humble or later)
 - `turtlesim` package
 - Python 3
-
-## License
-Specify your license in the `package.xml` files.
 
 ## Contributing
 Pull requests and issues are welcome!
