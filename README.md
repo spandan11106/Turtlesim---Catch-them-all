@@ -132,8 +132,5 @@ Ensure all dependencies for testing are installed.
 ## Contributing
 Pull requests and issues are welcome! Please open an issue or submit a PR for improvements or bug fixes.
 
-## License
-[MIT License](LICENSE)  
-
 ---
 Created by Spandan Mhapsekar
