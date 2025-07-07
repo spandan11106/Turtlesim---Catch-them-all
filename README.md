@@ -6,8 +6,6 @@ A ROS 2 project where you control a turtle in the classic `turtlesim` simulator 
 
 [▶️ Watch Demo Video](project_demo.webm)
 
-**[Direct link to demo video (download/view)](./project_demo.webm)**
-
 ## Features
 - **Automatic Turtle Catching:** The main controller node automatically finds and catches all turtles in the simulation.
 - **Custom Interfaces:** Defines custom messages and services for turtle management.
