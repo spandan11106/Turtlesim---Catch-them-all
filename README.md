@@ -6,6 +6,23 @@ A ROS 2 project where you control a turtle in the classic `turtlesim` simulator 
 
 [▶️ Watch Demo Video](project_demo.webm)
 
+## Table of Contents
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Parameters and Configuration](#parameters-and-configuration)
+- [Packages and Nodes](#packages-and-nodes)
+- [Custom Interfaces](#custom-interfaces)
+- [Usage Examples](#usage-examples)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+This project features a fully automated turtle controller that navigates the `turtlesim` world to catch all spawned turtles, showcasing essential ROS 2 skills: node orchestration, custom interfaces, parameterization, and launch management.
+
 ## Quick Start
 1. **Install ROS 2 (Humble or later)**
 2. **Clone this repository:**
@@ -45,43 +62,66 @@ Turtlesim---Catch-them-all/
 ```
 
 ## Parameters and Configuration
-- The project uses a YAML file (`src/bringup/config/parameters.yaml`) to set parameters such as `catch_closest_turtle_first`.
-- You can easily change these parameters to modify the turtle-catching behavior without changing code.
-- Example parameter:
-  ```yaml
-  catch_closest_turtle_first: true
-  ```
+Parameters are managed via a YAML file (`src/bringup/config/parameters.yaml`). You can modify these to change the turtle-catching behavior without editing the code.
 
-## Packages and Nodes
-- **catch_them_all**
-  - Contains the main logic and nodes:
-    - `turtle_controller.py`: Controls the main turtle, subscribes to alive turtles, and sends velocity commands to catch them.
-    - `turtle_spawner.py`: Spawns new turtles and manages their lifecycle.
-- **interfaces**
-  - Defines custom messages (`Turtle.msg`, `TurtleArray.msg`) and services (`CatchTurtle.srv`) for communication between nodes.
-- **bringup**
-  - Contains launch files and configuration (YAML) for starting the whole system easily.
-
-## Dependencies
-- ROS 2 (Humble or later)
-- `turtlesim` package
-- Python 3
-
-## Usage Examples
-### Change Parameters in YAML
-Edit `src/bringup/config/parameters.yaml` to change project behavior. For example:
+Example:
 ```yaml
 /turtle_controller:
   ros__parameters:
-    catch_closest_turtle_first: False  # Catch turtles in spawn order
+    catch_closest_turtle_first: False # Catch turtles in spawn order
 /turtle_spawner:
   ros__parameters:
     turtle_name_prefix: "demo"
     spawn_frequency: 2.0
 ```
-- `catch_closest_turtle_first`: If `True`, the controller will always target the closest turtle. If `False`, turtles are caught in the order they spawn.
-- `turtle_name_prefix`: Prefix for spawned turtle names.
-- `spawn_frequency`: How often (in seconds) new turtles are spawned.
+- **catch_closest_turtle_first:** If `True`, targets the nearest turtle; if `False`, follows spawn order.
+- **turtle_name_prefix:** Prefix for naming spawned turtles.
+- **spawn_frequency:** Frequency (in seconds) for spawning new turtles.
+
+## Packages and Nodes
+- **catch_them_all**
+  - `turtle_controller.py`: Controls the main turtle, subscribes to alive turtles, and sends velocity commands to catch them.
+  - `turtle_spawner.py`: Spawns new turtles and manages their lifecycle.
+- **interfaces**
+  - Custom messages and services (see below).
+- **bringup**
+  - Launch files and YAML configuration for starting the whole system.
+
+## Custom Interfaces
+- **Messages:**
+  - `Turtle.msg`: Contains information about a turtle (e.g., name, position, orientation).
+  - `TurtleArray.msg`: An array of `Turtle` messages for tracking multiple turtles.
+- **Services:**
+  - `CatchTurtle.srv`: Service to command the controller to catch a specific turtle.
+
+These interfaces allow nodes to communicate complex data structures and requests in a type-safe manner.
+
+## Usage Examples
+### Basic ROS 2 Commands
+- **List running nodes:**
+  ```sh
+  ros2 node list
+  ```
+- **Check parameters:**
+  ```sh
+  ros2 param list
+  ros2 param get /turtle_controller catch_closest_turtle_first
+  ```
+- **Call the catch service:**
+  ```sh
+  ros2 service call /catch_turtle interfaces/srv/CatchTurtle "{name: 'turtle2'}"
+  ```
+
+### Change Parameters in YAML
+Edit `src/bringup/config/parameters.yaml` as shown above to change project behavior.
+
+## Testing
+Run the included tests and linting with:
+```sh
+colcon test
+colcon test-result --all
+```
+Ensure all dependencies for testing are installed.
 
 ## Troubleshooting
 - **Build errors:** Make sure you have sourced the correct ROS 2 setup script and installed all dependencies.
@@ -90,7 +130,11 @@ Edit `src/bringup/config/parameters.yaml` to change project behavior. For exampl
 - **Still stuck?** Open an issue on GitHub with your error message and setup details.
 
 ## Contributing
-Pull requests and issues are welcome!
+Pull requests and issues are welcome! Please open an issue or submit a PR for improvements or bug fixes.
+
+## License
+[MIT License](LICENSE)  
+*Specify your license here if different.*
 
 ---
 Created by Spandan Mhapsekar
